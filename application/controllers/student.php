@@ -34,7 +34,6 @@ class Student extends CI_Controller {
                     $uploadData = $this->upload->data();
                     $data["image"] = $uploadData['file_name'];
                 }
-
             }
             $this->form_validation->set_rules("name", "Tên sinh viên", "required|min_length[3]");
             $this->form_validation->set_rules("age", "Tuổi", "required|is_numeric");
@@ -42,8 +41,13 @@ class Student extends CI_Controller {
                 $this->db->insert("students", $data);
                 header('Location: index');
             }
-
         }
         $this->load->view("student/add");
+    }
+    public  function delete_user($id)
+    {
+        $this->db->where("id","$id");
+        $this->db->delete("students");
+        redirect("student/index");
     }
 }

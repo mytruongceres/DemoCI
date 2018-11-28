@@ -17,6 +17,12 @@
     .bold{
         font-weight: bold;
     }
+    .delete {
+        color: red;
+    }
+    .update{
+        color: #00CC00;
+    }
 </style>
 <body>
 
@@ -28,6 +34,8 @@
         <td class="bold">Name</td>
         <td class="bold">Age</td>
         <td class="bold">Picture</td>
+        <td class="bold">Delete</td>
+        <td class="bold">Update</td>
     </tr>
     <?php foreach ($list as $value) {?>
         <tr>
@@ -35,7 +43,10 @@
             <td><?php echo $value["name"];?></td>
             <td><?php echo $value["age"];?></td>
             <td><img src="<?=base_url()?>upload/<?php echo $value['image'];?>" class="img-thumbnail" alt="Cinque Terre" width="200px" height="200px" ></td>
+            <td><a class="delete" href="<?=base_url()?>student/delete_user/<?php echo $value["id"];?>">Delete</a></td>
+            <td><a class="update" href="<?=base_url()?>student/update/<?php echo $value["id"];?>">Update</a></td>
         </tr>
+
     <?php } ?>
 </table>
 
