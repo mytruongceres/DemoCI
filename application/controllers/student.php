@@ -5,6 +5,7 @@ class Student extends CI_Controller {
     {
         parent::__construct();
         $this->load->database();
+        $this->load->model("student_model");
         $this->load->helper(array('form', 'file','url'));
     }
     public function index(){
@@ -50,4 +51,22 @@ class Student extends CI_Controller {
         $this->db->delete("students");
         redirect("student/index");
     }
+    public function show_student_id()
+    {
+        $id = $this->uri->segment(3);
+        $data['students'] = $this->student_model->getList();
+        $data['single_student'] = $this->student_model->show_student_id($id);
+        $this->load->view('student/update',$data);
+    }
+    public function update_student_id()
+    {
+        $id = $this->input->post('id');
+        $data = array(
+            'name' =>$this->input->post('name'),
+            'age' =>$this->input->post('age')
+        );
+        $this->student_model->update_student_id($id,$data);
+        $this->show_student_id();
+    }
 }
+?>

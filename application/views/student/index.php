@@ -27,7 +27,8 @@
 <body>
 
 <h2>All student</h2>
-<a class="bold" href = "<?=base_url()?>student/add">Add student</a>
+<div><a class="bold" href = "<?=base_url()?>student/add">Add student</a></div>
+<div><a class="bold" href = "<?=base_url()?>student/update_student_id">Edit</a></div>
 <table class="table" border="3">
     <tr class="danger">
         <td class="bold">Id</td>
@@ -35,7 +36,7 @@
         <td class="bold">Age</td>
         <td class="bold">Picture</td>
         <td class="bold">Delete</td>
-        <td class="bold">Update</td>
+
     </tr>
     <?php foreach ($list as $value) {?>
         <tr>
@@ -44,7 +45,6 @@
             <td><?php echo $value["age"];?></td>
             <td><img src="<?=base_url()?>upload/<?php echo $value['image'];?>" class="img-thumbnail" alt="Cinque Terre" width="200px" height="200px" ></td>
             <td><a class="delete" href="<?=base_url()?>student/delete_user/<?php echo $value["id"];?>">Delete</a></td>
-            <td><a class="update" href="<?=base_url()?>student/update/<?php echo $value["id"];?>">Update</a></td>
         </tr>
 
     <?php } ?>
