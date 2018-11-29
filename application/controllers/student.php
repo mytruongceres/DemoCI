@@ -8,6 +8,14 @@ class Student extends CI_Controller {
         $this->load->model("student_model");
         $this->load->helper(array('form', 'file','url'));
     }
+    public function home()
+    {
+        $this->load->library('make_bread');
+        $this->make_bread->add('Index','student/index',TRUE);
+        $this->make_bread->add('Edit','update_student_id',TRUE);
+        $breadcrumb = $this->make_bread->output();
+        echo $breadcrumb;
+    }
     public function index(){
         $this->load->model("student_model");
         $data["list"] = $this->student_model->getList();

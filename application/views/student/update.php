@@ -1,3 +1,12 @@
+<head>
+    <title>Danh sách sinh viên</title>
+    <base href="<?php echo 'BASE_URL';?>">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="<?php echo base_url("assets/css/bootstrap.css"); ?>" />
+    <link rel="stylesheet" type="text/css" href="<?php echo base_url("assets/css/bootstrap.min.css"); ?>">
+    <script src="<?php echo base_url("assets/js/jquery-3.3.1.min.js"); ?>"></script>
+    <script src="<?php echo base_url("assets/js/bootstrap.min.js"); ?>"></script>
+</head>
 <html>
 <style>
 
@@ -88,7 +97,7 @@
 <body>
 <div id="container">
     <div class="Prev">
-        <a style="color: #d9534f" href="<?=base_url()?>student/index">ComeBack</a>
+       <button class="btn btn-success" style="background: #2e6da4"><a style="color: whitesmoke;" href="<?=base_url()?>student/index">ComeBack</a></button>
     </div>
     <div id="wrapper">
         <h1>Update Data </h1><hr/>

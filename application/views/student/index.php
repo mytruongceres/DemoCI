@@ -17,18 +17,20 @@
     .bold{
         font-weight: bold;
     }
-    .delete {
-        color: red;
+    .table{
+        margin-top: 50px;
     }
-    .update{
-        color: #00CC00;
+    .delete{
+        color: white;
     }
+
+
 </style>
 <body>
 
 <h2>All student</h2>
-<div><a class="bold" href = "<?=base_url()?>student/add">Add student</a></div>
-<div><a class="bold" href = "<?=base_url()?>student/update_student_id">Edit</a></div>
+<button class="btn btn-success"><a class="bold" href = "<?=base_url()?>student/add">Add student</a></button>
+<button style="float: right" class="btn btn-success"><a class="bold"  href = "<?=base_url()?>student/update_student_id">Update Data</a></button>
 <table class="table" border="3">
     <tr class="danger">
         <td class="bold">Id</td>
@@ -44,7 +46,7 @@
             <td><?php echo $value["name"];?></td>
             <td><?php echo $value["age"];?></td>
             <td><img src="<?=base_url()?>upload/<?php echo $value['image'];?>" class="img-thumbnail" alt="Cinque Terre" width="200px" height="200px" ></td>
-            <td><a class="delete" href="<?=base_url()?>student/delete_user/<?php echo $value["id"];?>">Delete</a></td>
+            <td><button style="background: crimson;" class="btn btn-success"><a class="delete"  href="<?=base_url()?>student/delete_user/<?php echo $value["id"];?>">Delete</a></button></td>
         </tr>
 
     <?php } ?>
