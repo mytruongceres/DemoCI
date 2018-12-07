@@ -51,7 +51,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 class CI_Encrypt {
 
 	/**
-	 * Reference to the user's encryption key
+	 * Reference to the users's encryption key
 	 *
 	 * @var string
 	 */

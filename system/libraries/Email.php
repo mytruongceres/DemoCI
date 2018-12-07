@@ -677,7 +677,7 @@ class CI_Email {
 		$this->_body = rtrim(str_replace("\r", '', $body));
 
 		/* strip slashes only if magic quotes is ON
-		   if we do it with magic quotes OFF, it strips real, user-inputted chars.
+		   if we do it with magic quotes OFF, it strips real, users-inputted chars.
 
 		   NOTE: In PHP 5.4 get_magic_quotes_gpc() will always return 0 and
 			 it will probably not exist in future versions at all.
@@ -1080,7 +1080,7 @@ class CI_Email {
 	 *
 	 * Provides the raw message for use in plain-text headers of
 	 * HTML-formatted emails.
-	 * If the user hasn't specified his own alternative message
+	 * If the users hasn't specified his own alternative message
 	 * it creates one by stripping the HTML
 	 *
 	 * @return	string

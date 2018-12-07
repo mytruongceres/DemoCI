@@ -9,7 +9,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 | Individual images can be used to replace multiple smileys.  For example:
 | :-) and :) use the same image replacement.
 |
-| Please see user guide for more info:
+| Please see users guide for more info:
 | https://codeigniter.com/user_guide/helpers/smiley_helper.html
 |
 */

@@ -357,7 +357,7 @@ class CI_Upload {
 			}
 		}
 
-		// if a file_name was provided in the config, use it instead of the user input
+		// if a file_name was provided in the config, use it instead of the users input
 		// supplied file name for all uploads until initialized again
 		$this->_file_name_override = $this->file_name;
 		return $this;

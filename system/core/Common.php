@@ -580,7 +580,7 @@ if ( ! function_exists('_error_handler'))
 	 *
 	 * This is the custom error handler that is declared at the (relative)
 	 * top of CodeIgniter.php. The main reason we use this is to permit
-	 * PHP errors to be logged in our own log files since the user may
+	 * PHP errors to be logged in our own log files since the users may
 	 * not have access to server logs. Since this function effectively
 	 * intercepts PHP errors, however, we also need to display errors
 	 * based on the current error_reporting level.

@@ -944,7 +944,7 @@ class CI_Form_validation {
 	/**
 	 * Set Select
 	 *
-	 * Enables pull-down lists to be set to the value the user
+	 * Enables pull-down lists to be set to the value the users
 	 * selected in the event of an error
 	 *
 	 * @param	string
@@ -987,7 +987,7 @@ class CI_Form_validation {
 	/**
 	 * Set Radio
 	 *
-	 * Enables radio buttons to be set to the value the user
+	 * Enables radio buttons to be set to the value the users
 	 * selected in the event of an error
 	 *
 	 * @param	string
@@ -1030,7 +1030,7 @@ class CI_Form_validation {
 	/**
 	 * Set Checkbox
 	 *
-	 * Enables checkboxes to be set to the value the user
+	 * Enables checkboxes to be set to the value the users
 	 * selected in the event of an error
 	 *
 	 * @param	string

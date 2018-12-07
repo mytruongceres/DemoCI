@@ -108,7 +108,7 @@ switch (ENVIRONMENT)
  * directory than the default one you can set its name here. The directory
  * can also be renamed or relocated anywhere on your server. If you do,
  * use an absolute (full) server path.
- * For more info please see the user guide:
+ * For more info please see the users guide:
  *
  * https://codeigniter.com/user_guide/general/managing_apps.html
  *

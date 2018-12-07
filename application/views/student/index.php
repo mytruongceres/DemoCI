@@ -10,34 +10,52 @@
     <script src="<?php echo base_url("assets/js/bootstrap.min.js"); ?>"></script>
 </head>
 <style>
-    body{
-        margin-left: 100px;
-        margin-right: 100px;
+    .container{
+        width: 80%;
     }
+
     .bold{
         font-weight: bold;
     }
     .table{
         margin-top: 50px;
     }
-    .delete{
-        color: white;
+    .ReLo{
+        float: right;
+        height: 100%;
+        padding-top: 10px;
+        padding-right: 5px;
+    }
+    .Log{
+        margin-left:  10px;
     }
 
 
-</style>
-<body>
 
-<h2>All student</h2>
+</style>
+
+
+<body>
+<div class="container">
+    <nav class="navbar navbar-inverse">
+        <div class="ReLo">
+        <a href="<?=base_url()?>users/registration" class="Reg">Register</a>
+        <a href="<?=base_url()?>users/login" class="Log" >Login</a>
+        </div>
+    </nav>
+
+<div>
+<h2 style="text-align: center">School</h2>
+</div>
 <button class="btn btn-success"><a class="bold" href = "<?=base_url()?>student/add">Add student</a></button>
 <button style="float: right" class="btn btn-success"><a class="bold"  href = "<?=base_url()?>student/update_student_id">Update Data</a></button>
-<table class="table" border="3">
+<table class="table" border="0">
     <tr class="danger">
         <td class="bold">Id</td>
         <td class="bold">Name</td>
         <td class="bold">Age</td>
         <td class="bold">Picture</td>
-        <td class="bold">Delete</td>
+
 
     </tr>
     <?php foreach ($list as $value) {?>
@@ -46,11 +64,10 @@
             <td><?php echo $value["name"];?></td>
             <td><?php echo $value["age"];?></td>
             <td><img src="<?=base_url()?>upload/<?php echo $value['image'];?>" class="img-thumbnail" alt="Cinque Terre" width="200px" height="200px" ></td>
-            <td><button style="background: crimson;" class="btn btn-success"><a class="delete"  href="<?=base_url()?>student/delete_user/<?php echo $value["id"];?>">Delete</a></button></td>
         </tr>
 
     <?php } ?>
 </table>
-
+</div>
 </body>
 </html>

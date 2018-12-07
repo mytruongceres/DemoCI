@@ -374,7 +374,7 @@ class CI_URI {
 	 * Generates an associative array of URI data starting at the supplied
 	 * segment index. For example, if this is your URI:
 	 *
-	 *	example.com/user/search/name/joe/location/UK/gender/male
+	 *	example.com/users/search/name/joe/location/UK/gender/male
 	 *
 	 * You can use this method to generate an array with this prototype:
 	 *

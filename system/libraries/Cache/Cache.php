@@ -212,7 +212,7 @@ class CI_Cache extends CI_Driver_Library {
 	/**
 	 * Cache Info
 	 *
-	 * @param	string	$type = 'user'	user/filehits
+	 * @param	string	$type = 'users'	users/filehits
 	 * @return	mixed	array containing cache info on success OR FALSE on failure
 	 */
 	public function cache_info($type = 'user')

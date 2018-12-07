@@ -341,7 +341,7 @@ abstract class CI_DB_utility {
 			'foreign_key_checks'	=> TRUE
 		);
 
-		// Did the user submit any preferences? If so set them....
+		// Did the users submit any preferences? If so set them....
 		if (count($params) > 0)
 		{
 			foreach ($prefs as $key => $val)

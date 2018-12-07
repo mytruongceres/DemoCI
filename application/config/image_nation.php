@@ -1,0 +1,11 @@
+<?php  if ( ! defined('BASEPATH')) exit('No direct script access allowed');
+$config['image_library'] = 'gd2';
+$config['source_directory'] = 'upload';
+$config['parent_directory'] = 'upload';
+$config['size_folders'] = TRUE;
+$config['default_sizes'] = '200x200|400x350|500x200';
+$config['keep_aspect_ratio'] = FALSE;
+$config['default_master_dim'] = 'auto';
+$config['default_style'] = array('vertical'=>'center','horizontal'=>'center');
+$config['overwrite_images'] = FALSE;
+$config['default_quality'] = '70%';

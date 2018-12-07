@@ -83,7 +83,7 @@ class CI_Driver_Library {
 	/**
 	 * Load driver
 	 *
-	 * Separate load_driver call to support explicit driver load by library or user
+	 * Separate load_driver call to support explicit driver load by library or users
 	 *
 	 * @param	string	Driver name (w/o parent prefix)
 	 * @return	object	Child class

@@ -860,7 +860,7 @@ class CI_Jquery extends CI_Javascript {
 	/**
 	 * UI
 	 *
-	 * Load a user interface library
+	 * Load a users interface library
 	 *
 	 * @param	string	$src
 	 * @param	bool	$relative

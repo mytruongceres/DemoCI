@@ -51,7 +51,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 class CI_Input {
 
 	/**
-	 * IP address of the current user
+	 * IP address of the current users
 	 *
 	 * @var	string
 	 */

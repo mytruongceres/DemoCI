@@ -748,7 +748,7 @@ class CI_Javascript {
 	public function generate_json($result = NULL, $match_array_type = FALSE)
 	{
 		// JSON data can optionally be passed to this function
-		// either as a database result object or an array, or a user supplied array
+		// either as a database result object or an array, or a users supplied array
 		if ($result !== NULL)
 		{
 			if (is_object($result))

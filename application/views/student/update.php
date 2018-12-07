@@ -92,23 +92,48 @@
     .Prev{
         margin-bottom: 50px;
     }
+    .del
+    {
+        color: red;
+    }
+    .tddel{
+        width:  59px;
+        height: 39px;
+    }
 
 </style>
 <body>
+<div class="container">
+    <nav class="navbar navbar-inverse">
+        <div class="ReLo">
+            <a href="<?=base_url()?>users/logout" class="Reg">Logout</a>
+        </div>
+    </nav>
+
+    <div>
 <div id="container">
     <div class="Prev">
-       <button class="btn btn-success" style="background: #2e6da4"><a style="color: whitesmoke;" href="<?=base_url()?>student/index">ComeBack</a></button>
+       <button class="btn btn-success" style="background: #2e6da4"><a style="color: whitesmoke;" href="<?=base_url()?>student/index">Home</a></button>
     </div>
     <div id="wrapper">
         <h1>Update Data </h1><hr/>
         <div id="menu">
             <p>Click On Menu</p>
+            <div>
+                <table class="table">
             <!-- Fetching Names Of All Students From Database -->
-            <ol>
                 <?php foreach ($students as $student): ?>
-                    <li><a href="<?php echo base_url() . "student/show_student_id/" . $student["id"]; ?>"><?php echo $student["name"]; ?></a></li>
+
+                            <tr>
+                            <td><a href="<?php echo base_url() . "student/show_student_id/" . $student["id"]; ?>"><?php echo $student["name"]; ?></a></td>
+
+                            <td class="tddel"><a class="del " href="<?=base_url()?>student/delete_user/<?php echo $student["id"];?>">Delete</a></td>
+                            </tr>
+
                 <?php endforeach; ?>
-            </ol>
+                </table>
+            </div>
+
         </div>
         <div id="detail">
             <!-- Fetching All Details of Selected Student From Database And Showing In a Form -->

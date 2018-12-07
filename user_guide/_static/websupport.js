@@ -121,7 +121,7 @@
   }
 
   /**
-   * Create a comp function. If the user has preferences stored in
+   * Create a comp function. If the users has preferences stored in
    * the sortBy cookie, use those, otherwise use the default.
    */
   function initComparator() {
@@ -257,7 +257,7 @@
         ao.find('img').attr({'src': opts.commentBrightImage});
         if (node_id) {
           // if this was a "root" comment, remove the commenting box
-          // (the user can get it back by reopening the comment popup)
+          // (the users can get it back by reopening the comment popup)
           $('#ca' + node_id).slideUp();
         }
       },
@@ -348,7 +348,7 @@
         }
         // User mode: only mark the comment as deleted
         div
-          .find('span.user-id:first')
+          .find('span.users-id:first')
           .text('[deleted]').end()
           .find('div.comment-text:first')
           .text('[deleted]').end()
@@ -399,7 +399,7 @@
     $('#mb' + id).toggle();
   }
 
-  /** Handle when the user clicks on a sort by link. */
+  /** Handle when the users clicks on a sort by link. */
   function handleReSort(link) {
     var classes = link.attr('class').split(/\s+/);
     for (var i=0; i<classes.length; i++) {
@@ -421,7 +421,7 @@
   }
 
   /**
-   * Function to process a vote when a user clicks an arrow.
+   * Function to process a vote when a users clicks an arrow.
    */
   function handleVote(link) {
     if (!opts.voting) {
@@ -566,7 +566,7 @@
     var context = $.extend({}, opts, comment);
     var div = $(renderTemplate(commentTemplate, context));
 
-    // If the user has voted on this comment, highlight the correct arrow.
+    // If the users has voted on this comment, highlight the correct arrow.
     if (comment.vote) {
       var direction = (comment.vote == 1) ? 'u' : 'd';
       div.find('#' + direction + 'v' + comment.id).hide();
@@ -617,7 +617,7 @@
       .fadeOut("slow");
   }
 
-  /** Add a link the user uses to open the comments popup. */
+  /** Add a link the users uses to open the comments popup. */
   $.fn.comment = function() {
     return this.each(function() {
       var id = $(this).attr('id').substring(1);
@@ -743,7 +743,7 @@
       </div>\
       <div class="comment-content">\
         <p class="tagline comment">\
-          <span class="user-id"><%username%></span>\
+          <span class="users-id"><%username%></span>\
           <span class="rating"><%pretty_rating%></span>\
           <span class="delta"><%time.delta%></span>\
         </p>\

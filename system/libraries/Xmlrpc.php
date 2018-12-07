@@ -175,7 +175,7 @@ class CI_Xmlrpc {
 	public $xmlrpcVersion		= '1.1';
 
 	/**
-	 * Start of user errors
+	 * Start of users errors
 	 *
 	 * @var	int
 	 */

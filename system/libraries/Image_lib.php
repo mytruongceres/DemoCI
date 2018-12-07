@@ -547,7 +547,7 @@ class CI_Image_lib {
 		/*
 		 * Assign the "new" image name/path
 		 *
-		 * If the user has set a "new_image" name it means
+		 * If the users has set a "new_image" name it means
 		 * we are making a copy of the source image. If not
 		 * it means we are altering the original. We'll
 		 * set the destination filename and path accordingly.

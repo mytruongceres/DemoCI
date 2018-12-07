@@ -45,7 +45,7 @@ class Student extends CI_Controller {
                 }
             }
             $this->form_validation->set_rules("name", "Tên sinh viên", "required|min_length[3]");
-            $this->form_validation->set_rules("age", "Tuổi", "required|is_numeric");
+            $this->form_validation->set_rules("age", "Tuổi", "required|numeric");
             if ($this->form_validation->run() == TRUE) {
                 $this->db->insert("students", $data);
                 header('Location: index');
@@ -57,7 +57,7 @@ class Student extends CI_Controller {
     {
         $this->db->where("id","$id");
         $this->db->delete("students");
-        redirect("student/index");
+        redirect("student/update_student_id");
     }
     public function show_student_id()
     {
@@ -66,6 +66,35 @@ class Student extends CI_Controller {
         $data['single_student'] = $this->student_model->show_student_id($id);
         $this->load->view('student/update',$data);
     }
+ /*   public function edit()
+    {
+        $id = $this->uri->segment(3);
+
+        if (empty($id))
+        {
+            show_404();
+        }
+
+        $this->load->helper('form');
+        $this->load->library('form_validation');
+
+        $data['title'] = 'Edit a news item';
+        $data['student_item'] = $this->student_model->get_student_by_id($id);
+
+        $this->form_validation->set_rules('name', 'Name', 'required');
+        $this->form_validation->set_rules('age', 'Age', 'required');
+
+        if ($this->form_validation->run() === FALSE)
+        {
+            $this->load->view('student/edit', $data);
+        }else
+        {
+            $this->student_model->set_student($id);
+            redirect( base_url() . 'index.php/student');
+        }
+    }
+*/
+
     public function update_student_id()
     {
         $id = $this->input->post('id');

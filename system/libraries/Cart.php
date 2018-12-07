@@ -213,7 +213,7 @@ class CI_Cart {
 
 		// Validate the product ID. It can only be alpha-numeric, dashes, underscores or periods
 		// Not totally sure we should impose this rule, but it seems prudent to standardize IDs.
-		// Note: These can be user-specified by setting the $this->product_id_rules variable.
+		// Note: These can be users-specified by setting the $this->product_id_rules variable.
 		if ( ! preg_match('/^['.$this->product_id_rules.']+$/i', $items['id']))
 		{
 			log_message('error', 'Invalid product ID.  The product ID can only contain alpha-numeric characters, dashes, and underscores');
@@ -223,7 +223,7 @@ class CI_Cart {
 		// --------------------------------------------------------------------
 
 		// Validate the product name. It can only be alpha-numeric, dashes, underscores, colons or periods.
-		// Note: These can be user-specified by setting the $this->product_name_rules variable.
+		// Note: These can be users-specified by setting the $this->product_name_rules variable.
 		if ($this->product_name_safe && ! preg_match('/^['.$this->product_name_rules.']+$/i'.(UTF8_ENABLED ? 'u' : ''), $items['name']))
 		{
 			log_message('error', 'An invalid name was submitted as the product name: '.$items['name'].' The name can only contain alpha-numeric characters, dashes, underscores, colons, and spaces');
@@ -277,7 +277,7 @@ class CI_Cart {
 	 * Update the cart
 	 *
 	 * This function permits the quantity of a given item to be changed.
-	 * Typically it is called from the "view cart" page if a user makes
+	 * Typically it is called from the "view cart" page if a users makes
 	 * changes to the quantity before checkout. That array must contain the
 	 * product ID and quantity for each item.
 	 *
@@ -334,7 +334,7 @@ class CI_Cart {
 	 * Update the cart
 	 *
 	 * This function permits changing item properties.
-	 * Typically it is called from the "view cart" page if a user makes
+	 * Typically it is called from the "view cart" page if a users makes
 	 * changes to the quantity before checkout. That array must contain the
 	 * rowid and quantity for each item.
 	 *

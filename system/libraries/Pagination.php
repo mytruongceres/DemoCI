@@ -417,7 +417,7 @@ class CI_Pagination {
 			return '';
 		}
 
-		// Check the user defined number of links.
+		// Check the users defined number of links.
 		$this->num_links = (int) $this->num_links;
 
 		if ($this->num_links < 0)
