@@ -23,7 +23,7 @@
     .ReLo{
         float: right;
         height: 100%;
-        padding-top: 10px;
+        padding-top: 12px;
         padding-right: 5px;
     }
     .Log{
@@ -47,8 +47,7 @@
 <div>
 <h2 style="text-align: center">School</h2>
 </div>
-<button class="btn btn-success"><a class="bold" href = "<?=base_url()?>student/add">Add student</a></button>
-<button style="float: right" class="btn btn-success"><a class="bold"  href = "<?=base_url()?>student/update_student_id">Update Data</a></button>
+
 <table class="table" border="0">
     <tr class="danger">
         <td class="bold">Id</td>

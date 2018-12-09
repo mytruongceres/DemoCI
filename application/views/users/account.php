@@ -5,6 +5,14 @@
 </head>
 <body>
 <div class="container">
+    <nav class="navbar navbar-inverse">
+        <div class="ReLo">
+            <a href="<?php echo base_url('users/logout');?>" class="Reg">Logout</a>
+        </div>
+    </nav>
+
+    <div>
+<div class="container">
     <h2>User Account</h2>
     <h3>Welcome <?php echo $user['name']; ?>!</h3>
     <div class="account-info">

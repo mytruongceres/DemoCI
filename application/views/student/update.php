@@ -11,19 +11,30 @@
 <style>
 
     #container {
-        width:622px;
+        width:80%;
         height:610px;
         margin:50px auto
     }
     #wrapper {
-        width:520px;
+        width:100%;
         padding:0 50px 20px;
-        background:linear-gradient(#fff,#AFEBD8);
-        border:1px solid #ccc;
-        box-shadow:0 0 5px;
+        background:linear-gradient(#2d2c2c,#4CAF50);
         font-family:'Marcellus',serif;
         float:left;
-        margin-top:10px
+        margin-top:10px;
+        border:1px solid #ccc;
+        box-shadow:0 0 5px;
+    }
+    #add {
+        width:100%;
+        text-align: center;
+        color: white;
+        background:#4CAF50;
+        font-size: 28px;
+        font-family:'Marcellus',serif;
+        float:left;
+        margin-top:10px;
+
     }
     #menu {
         float:left;
@@ -33,21 +44,24 @@
     #detail {
         float:left;
         width:320px;
+        margin-left: 50px;
         margin-top:50px
     }
     a {
         text-decoration:none;
-        color:blue
+        color:white;
     }
     a:hover {
-        color:red
+        color:#8ba8ac;
     }
     li {
         padding:4px 0
     }
     h1 {
         text-align:center;
-        font-size:28px
+        font-size:28px;
+        color: white;
+
     }
     hr {
         border:0;
@@ -74,7 +88,7 @@
     input#submit {
         margin-top:10px;
         font-size:18px;
-        background:linear-gradient(#22abe9 5%,#36caf0 100%);
+        background:#d58512;
         border:1px solid #0F799E;
         color:#fff;
         font-weight:700;
@@ -87,10 +101,7 @@
     p {
         font-size:18px;
         font-weight:700;
-        color:#18af0b
-    }
-    .Prev{
-        margin-bottom: 50px;
+        color:#d58512;
     }
     .del
     {
@@ -100,21 +111,37 @@
         width:  59px;
         height: 39px;
     }
+    .Logout{
+        color: #9d9d9d;
+        float: right;
+        padding-top: 12px;
+        padding-right: 5px;
+        padding-right: 15px;
+    }
+    .bold{
+        color: white;
+    }
 
 </style>
 <body>
 <div class="container">
     <nav class="navbar navbar-inverse">
-        <div class="ReLo">
-            <a href="<?=base_url()?>users/logout" class="Reg">Logout</a>
+        <div class="navbar-header">
+            <a class="navbar-brand" href="<?=base_url()?>student/index">Home</a>
+        </div>
+
+        <div class="ReLo navbar-footer">
+            <a href="<?=base_url()?>users/logout" class="Logout">Logout</a>
         </div>
     </nav>
 
     <div>
 <div id="container">
-    <div class="Prev">
-       <button class="btn btn-success" style="background: #2e6da4"><a style="color: whitesmoke;" href="<?=base_url()?>student/index">Home</a></button>
+    <div id="add">
+        <a class="bold" href = "<?=base_url()?>student/add">Add student</a>
     </div>
+
+
     <div id="wrapper">
         <h1>Update Data </h1><hr/>
         <div id="menu">
@@ -127,7 +154,7 @@
                             <tr>
                             <td><a href="<?php echo base_url() . "student/show_student_id/" . $student["id"]; ?>"><?php echo $student["name"]; ?></a></td>
 
-                            <td class="tddel"><a class="del " href="<?=base_url()?>student/delete_user/<?php echo $student["id"];?>">Delete</a></td>
+                            <td class="tddel"><a class="del " href="<?=base_url()?>student/delete_user/<?php echo $student["id"];?>"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span></a></td>
                             </tr>
 
                 <?php endforeach; ?>
