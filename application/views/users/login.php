@@ -57,7 +57,13 @@
             <?php echo form_error('password','<span class="help-block">','</span>'); ?>
         </div>
         <div class="form-group">
-            <input type="submit" name="loginSubmit" class="btn-primary " value="Submit"/>
+            <input type="submit" name="loginSubmit" class="btn-primary " value="Login"/>
+            <a href="<?php echo base_url(); ?>users/login">login</a>
+            <?php
+            echo '<label class="text-danger">'.$this->session->flashdata
+
+                ("error").'</label>';
+            ?>
         </div>
     </form>
     <p class="footInfo">Don't have an account? <a href="<?php echo base_url(); ?>users/registration">Register here</a></p>

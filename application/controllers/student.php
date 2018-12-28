@@ -45,10 +45,10 @@ class Student extends CI_Controller {
                 }
             }
             $this->form_validation->set_rules("name", "Tên sinh viên", "required|min_length[3]");
-            $this->form_validation->set_rules("age", "Tuổi", "required|numeric");
+            $this->form_validation->set_rules("age", "Tuổi", "required|is_natural_no_zero");
             if ($this->form_validation->run() == TRUE) {
                 $this->db->insert("students", $data);
-                header('Location: index');
+                redirect('student/update_student_id');
             }
         }
         $this->load->view("student/add");
@@ -97,6 +97,8 @@ class Student extends CI_Controller {
 
     public function update_student_id()
     {
+
+
         $id = $this->input->post('id');
         $data = array(
             'name' =>$this->input->post('name'),
@@ -104,6 +106,8 @@ class Student extends CI_Controller {
         );
         $this->student_model->update_student_id($id,$data);
         $this->show_student_id();
+
+
     }
 }
 ?>
