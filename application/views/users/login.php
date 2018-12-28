@@ -58,7 +58,6 @@
         </div>
         <div class="form-group">
             <input type="submit" name="loginSubmit" class="btn-primary " value="Login"/>
-            <a href="<?php echo base_url(); ?>users/login">login</a>
             <?php
             echo '<label class="text-danger">'.$this->session->flashdata
 

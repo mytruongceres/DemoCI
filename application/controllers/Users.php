@@ -18,6 +18,10 @@ class Users extends CI_Controller{
     /*
     * User account information
     */
+    public function index()
+    {
+        $this->load->view('users/login');
+    }
     public function account(){
         $data = array();
         if($this->session->userdata('isUserLoggedIn')){
@@ -122,36 +126,29 @@ class Users extends CI_Controller{
                         $this->form_validation->set_rules('password', 'password', 'required');
                         $this->form_validation->set_rules('conf_password', 'confirm password', 'required|matches[password]');
 
-                        $userData = array(
-                            'name' => strip_tags($this->input->post('name')),
-                            'email' => strip_tags($this->input->post('email')),
-                            'password' => md5($this->input->post('password')),
-                            'gender' => $this->input->post('gender'),
-                            'phone' => strip_tags($this->input->post('phone'))
-                        );
 
-                        if($this->form_validation->run() == true){
-                            $insert = $this->user->insert($userData);
-
-                            if($insert){
-                                $this->session->set_userdata('success_msg', 'Your registration was successfully. Please login to your account.');
-                                redirect('users/login');
-                            }else{
-                                $data['error_msg'] = 'Some problems occured, please try again.';
+                        if($this->form_validation->run() == FALSE){
+                            $this->load->view('users/registration');
+                        }else{
+                            $userData = array(
+                                'name' => strip_tags($this->input->post('name')),
+                                'email' => strip_tags($this->input->post('email')),
+                                'password' => md5($this->input->post('password')),
+                                'gender' => $this->input->post('gender'),
+                                'phone' => strip_tags($this->input->post('phone'))
+                            );
+                            if($this->user->insert($userData)){
+                                if($this->user->sendEmail($this->input->post('email'))){
+                                    $this->session->set_flashdata('msg','<div class="alert alert-success text-center">Successfully registered. Please confirm the mail that has been sent to your email. </div>');
+                                  //  $this->load->view('users/registration');
+                                }else{
+                                    $this->session->set_flashdata('msg','<div class="alert alert-success text-center">Failed!!! Plsease try again </div>');
+                                  //  $this->load->view('users/registration');
+                                }
                             }
                         }
 
-                        if($this->user->insertEmployee($userData)){
-                            if($this->user->sendEmail($this->input->post('email'))){
-                                $this->session->set_flashdata('msg', '<div class="alert alert-success text-center">Successfully registered. Please confirm the mail that has been sent to your email. </div>');
-                                $this->load->view('users/registration');
-                            }else {
 
-                                //$error = "Error, Cannot insert new user details!";
-                                $this->session->set_flashdata('msg', '<div class="alert alert-danger text-center">Failed!! Please try again.</div>');
-                                $this->load->view('users/registration');
-                            }
-                        }
                     }
                     $data['user'] = $userData;
                     //load the view
@@ -168,7 +165,6 @@ class Users extends CI_Controller{
         $this->session->sess_destroy();
         redirect('student/index/','refresh');
     } */
-
    public function logout(){
        $this->session->sess_destroy();
        redirect(base_url().'student/index');
@@ -204,14 +200,16 @@ class Users extends CI_Controller{
         }
 
     }
-    function confirmEmail($hashcode){
+    public function comfirmEmail($hashcode)
+    {
         if($this->user->verifyEmail($hashcode)){
-            $this->session->set_flashdata('verify','<div class="alert alert-success text-center">Email address is confirmed. Please login to the system</div>');
-            redirect('Student_Controller/index');
+            $this->session->set_flashdata('verify','<div class="alert alert-success text-center">EMai address is confirm. Please check your email</div>');
+            redirect('student/update_student_id');
         }else{
-            $this->session->set_flashdata('verify', '<div class="alert alert-danger text-center">Email address is not confirmed. Please try to re-register.</div>');
-            redirect('Student_Controller/index');
+            $this->session->set_flashdata('verify','<div class="alert alert-danger text-center ">Email address is not confirm. Please check again</div>');
+            redirect('users/index');
         }
+
     }
 
 

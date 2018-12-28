@@ -4,7 +4,7 @@ class User extends CI_Model{
     {
         parent::__construct();
         $this->load->database();
-        $this->load->library('session');
+        $this->load->library('session','form_validation');
         $this->userTbl = 'users';
     }
     function login($email,$password)
@@ -77,50 +77,48 @@ class User extends CI_Model{
     public function insertEmployee($data){
         return $this->db->insert('users',$data);
     }
- /*   public function sendEmail($receiver){
-        $from = "ngocmy.truong29@gmail.com";
+    public function sendEmail($receiver){
+        $from = 'ngocmy.truong29@gmail.com';
         $subject = 'Verify email address';
-
-        $message = 'Dear User,<br><br> Please click on the below activation link to verify your email address<br><br>
- <a href=\'http://www.localhost/DemoCI/Users/confirmEmail/'.md5($receiver).'\'>http://www.localhost/DemoCI/Users/confirmEmail/'. md5($receiver) .'</a><br><br>Thanks';
-        //config email settings
+        $message = 'Dear User,<br><br>Please click on the below activation link to verify your email address<br><br>
+        <a href=\'http://www.localhost/DemoCI/users/comfirmEmail/'.md5($receiver).'\'>http://www.localhost/DemoCI/users/comfirmEmail/'. md5($receiver) .'</a><br><br>Thanks!!!';
         $config['protocol'] = 'smtp';
+        $config['mailpath'] = '/usr/sbin/sendmail';
         $config['smtp_host'] = 'ssl://smtp.gmail.com';
         $config['smtp_port'] = '465';
         $config['smtp_user'] = $from;
-        $config['smtp_pass'] = '******';  //sender's password
+        $config['_smtp_auth'] = TRUE;
+        $config['smtp_pass'] = 'tnm29199#';
         $config['mailtype'] = 'html';
-        $config['charset'] = 'iso-8859-1';
+        $config['charset']='utf8';
         $config['wordwrap'] = 'TRUE';
-        $config['newline'] = "\r\n";
 
-        $this->load->library('email', $config);
+        $this->load->library('email',$config);
         $this->email->initialize($config);
-        //send email
+        $this->email->set_newline("\r\n");
+        //send mail
         $this->email->from($from);
         $this->email->to($receiver);
         $this->email->subject($subject);
         $this->email->message($message);
 
         if($this->email->send()){
-            //for testing
-            echo "sent to: ".$receiver."<br>";
-            echo "from: ".$from. "<br>";
-            echo "protocol: ". $config['protocol']."<br>";
+            echo "<div>sent to: ".$receiver."<br>";
+             "from: ".$from."<br>";
+            echo "protocol: ".$config['protocol']."<br>";
             echo "message: ".$message;
             return true;
         }else{
-            echo "email send failed";
+            show_error($this->email->print_debugger());
             return false;
         }
-
     }
-    function verifyEmail($key){
-        $data = array('status' => 1);
+    function verifyEmail($key)
+    {
+        $data = array('status'=>1);
         $this->db->where('md5(email)',$key);
-        return $this->db->update('users', $data);    //update status as 1 to make active user
-    } */
-
+        return $this->db->update('users',$data);
+    }
     public function resolve_user_login($email,$password){
         $this->db->select('password');
         $this->db->from('users');
